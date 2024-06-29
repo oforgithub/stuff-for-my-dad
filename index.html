@@ -66,12 +66,13 @@
                     <li class="d-flex d-sm-none mobile-nav-close">
                         <i class="bi bi-x-lg"></i>
                     </li>
-                    <li><a class="nav-link scrollto active" href="#hero">Home</a></li> 
+                    <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
                     <li><a class="nav-link scrollto" href="#about">Firm Profile</a></li>
                     <li><a class="nav-link scrollto" href="#services">Personal Injury</a></li>
                     <li><a class="nav-link scrollto" href="#ourteam">Attorney Profile</a></li>
+                    <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
                 </ul>
-            </nav><!-- .navbar -->
+            </nav><!--.navbar -->
             <a href="#contact" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make an</span>
                 Appointment</a>
             <i class="bi bi-list mobile-nav-toggle d-flex d-xl-none"></i>
@@ -103,16 +104,13 @@
                         <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox play-btn mb-4 animate__animated animate__zoomIn"></a>
                     </div>
                     <div
-                        <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
-                            <div class="section-title">
-                                <h2><span>About Carlo A. Rolando</span></h2>
-                                <p>Carlo A. Rolando is an aggressive Bay Area litigator with a well-respected plaintiff's personal injury and general litigation practice.
+                        class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
+                        <div class="section-title">
+                            <h2><span>About Carlo A. Rolando</span></h2>
+                            <p>Carlo A. Rolando is an aggressive Bay Area litigator with a well-respected plaintiff's personal injury and general litigation practice.
 
-                                Mr. Rolando's personal injury practice represents individuals and their families in wrongful death and personal injury cases stemming from motor vehicle negligence, product liability, premises liability, and construction accidents. 
+                            Mr. Rolando's personal injury practice represents individuals and their families in wrongful death and personal injury cases stemming from motor vehicle negligence, product liability, premises liability, and construction accidents. 
 Mr. Rolando provides his clients with exceptional legal representation and attentiveness. Every client is provided with Mr. Rolando's direct number, and knows that each letter, meeting, interrogatory, deposition, and court appearance receives his personal attention, skill, and patience with the goal of achieving the best possible legal result.</p>
-                                
-                            </div>
-                        </div>
                         </div>
                     </div>
                 </div>
@@ -141,7 +139,8 @@ Mr. Rolando provides his clients with exceptional legal representation and atten
                                         <h5><b>Bicycle Accidents</b></h5>
                                     </div>
                                 </div>
-    				<li>
+                            </li>
+                            <li>
                                 <div class="card">
                                     <div class="card-body">
                                         <h5><b>Car Accidents</b></h5>
@@ -169,25 +168,22 @@ Mr. Rolando provides his clients with exceptional legal representation and atten
                                     </div>
                                 </div>
                             </li>
-                                                        </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section><!-- End Services Section -->
         <!-- ======= Ourteam Section ======= -->
-        <section id="ourteam" the="ourteam">
+        <section id="ourteam" class="ourteam">
             <div class="container">
-                <div the="section-title">
-                    <div class="text-center">
-                        <h2><span>Attorney Profile</span></h2>
-                    </div>
-                </div
-                <div class="row ">
+                <div class="section-title text-center">
+                    <h2><span>Attorney Profile</span></h2>
+                </div>
+                <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <div class="row align-items-center  py-4">
+                                <div class="row align-items-center py-4">
                                     <div class="col-sm-4 text-center">
                                         <img src="assets/images/jpg/team-1.jpg" alt="Attorney Carlo A. Rolando"
                                             class="img-fluid img-thumbnail rounded-circle mb-3" style="width: 300px" />
@@ -202,7 +198,7 @@ Mr. Rolando provides his clients with exceptional legal representation and atten
 </p>
                                     </div>
                                 </div>
-                            </div
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -239,27 +235,25 @@ Mr. Rolando provides his clients with exceptional legal representation and atten
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 mt-5 mt-lg-0">
-                      <form action="mailto:carlo@rolandolaw.com?subject=Inquiry from Website" method="post" enctype="text/plain" class="contact-form" onsubmit="return checkKitty(this);">
-                        <div class="form-group mb-3">
-                            <input type="text" name="name" class="form-control" placeholder="Your Full Name" required>
-                        </div>
-                        <div class="form-group mb-3">
-                            <input type="text" name="phone" class="form-control" placeholder="Your Phone (optional)">
-                        </div>
-                        <div class="form-group mb-3">
-                            <input type="text" name="subject" class="form-control" placeholder="Subject" required>
-                        </div>
-                        <div class="form-group mb-3">
-                            <textarea name="body" class="form-control" placeholder="Please enter your message here." rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="background-color: #1f2771; border: none; margin-bottom: 20px;">Send Message</button>
-                    </form>
-                        <img id="kittyImage" src="assets/images/cat.jpg" style="display:none; width:100%; margin-top:20px;" alt="Cute Cat">
+                    <div class="col-lg-6 mt-5 mt-lg-0 mb-5">
+                        <form id="contact-form" onsubmit="sendSMS(event)" class="shadow p-4 rounded">
+                            <div class="form-group mb-3">
+                                <label for="name" class="form-label">Your Name:</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            <div class="form-group mb-3">
+                                <textarea class="form-control" id="message" name="message" rows="5" required placeholder="Please include your email or phone number, if you don't we have no way of reaching you."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="background-color: #1f2771; color: #fff;">Send Message</button>
+                        </form>
                     </div>
                 </div>
             </div>
-            <iframe src="https://www.google.com/maps/embed?pb=!4v1716520974089!6m8!1m7!1s62C-Yzt1YboAZzkoC_006A!2m2!1d37.89584339202246!2d-122.0662253522395!3f253.48706!4f0!5f0.7820865974627469" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="row mt-5">
+                <div class="col-lg-12">
+                    <iframe src="https://www.google.com/maps/embed?pb=!4v1716520974089!6m8!1m7!1s62C-Yzt1YboAZzkoC_006A!2m2!1d37.89584339202246!2d-122.0662253522395!3f253.48706!4f0!5f0.7820865974627469" width="100%"height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
         </section><!-- End Contact Section -->
         <!-- ======= Footer ======= -->
    <footer id="footer">
@@ -280,15 +274,31 @@ Mr. Rolando provides his clients with exceptional legal representation and atten
     <script src="assets/vendor/formvalidator/validate.min.js"></script>
     <script src="assets/js/main.min.js"></script>
     <script>
-        // Add this script to handle form submission on mobile
-        function checkKitty(form) {
-            // Your existing form validation logic here
 
-            // Example: Prevent form submission for demonstration
-            alert("message sent!");
-            // Open a new email window on mobile
-            window.location.href = "mailto:carlo@rolandolaw.com?subject=" + encodeURIComponent(form.subject.value) + "&body=" + encodeURIComponent("Phone: " + form.phone.value + "\n\n" + form.body.value);
-            return false; // Prevent actual form submission
+    </script>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("rLZrxdQ8pcOLb9riP"); // Replace with your actual User ID
+        })();
+        
+        function sendSMS(event) {
+            event.preventDefault();
+
+            var templateParams = {
+                to_number: '5103882014@txt.att.net', // AT&T Mail-to-SMS address
+                from_name: document.getElementById('name').value,
+                message: document.getElementById('message').value
+            };
+
+            emailjs.send('service_udweqhu', 'template_m0uudhm', templateParams)
+                .then(function(response) {
+                   console.log('SUCCESS!', response.status, response.text);
+                   alert('SUCCESS!');
+                }, function(error) {
+                   console.log('FAILED...', error);
+                   alert('Failed to send SMS.');
+                });
         }
     </script>
 </body>
