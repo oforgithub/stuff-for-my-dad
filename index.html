@@ -70,7 +70,6 @@
                     <li><a class="nav-link scrollto" href="#about">Firm Profile</a></li>
                     <li><a class="nav-link scrollto" href="#services">Personal Injury</a></li>
                     <li><a class="nav-link scrollto" href="#ourteam">Attorney Profile</a></li>
-                    <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
                 </ul>
             </nav><!--.navbar -->
             <a href="#contact" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make an</span>
@@ -249,7 +248,7 @@ Mr. Rolando provides his clients with exceptional legal representation and atten
                                 <label for="message" class="form-label">Message:</label>
                                 <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary" style="background-color: #1f2771; color: #fff;">Send Message</button>
+                            <button type="submit" class="btn btn-primary" style="background-color: rgb(31, 39, 113); color: #fff;">Send Message</button>
                         </form>
                     </div>
                 </div>
@@ -306,6 +305,167 @@ Mr. Rolando provides his clients with exceptional legal representation and atten
                 });
         }
     </script>
+
+<style>
+    html,
+    html *,
+    body,
+    body * {
+        cursor: none;
+        box-sizing: border-box;
+    }
+
+    .cursor-dot,
+    .cursor-dot-outline {
+        pointer-events: none;
+        position: fixed; /* Use fixed to keep it relative to the viewport */
+        z-index: 9999; /* Ensure it's on top of everything */
+        border-radius: 50%;
+        opacity: 0;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+    .cursor-dot {
+        width: 8px;
+        height: 8px;
+        background-color: hsl(234, 57%, 28%);
+    }
+
+    .cursor-dot-outline {
+        width: 25px; /* Adjust the size of the outline as needed */
+        height: 25px; /* Adjust the size of the outline as needed */
+        background-color: transparent;
+        border: 0.5px solid hsl(234, 57%, 28%);
+    }
+
+    /* Hide cursor on mobile devices */
+    @media (max-width: 768px) {
+        .cursor-dot,
+        .cursor-dot-outline {
+            display: none;
+        }
+    }
+</style>
+</head>
+<body>
+<div class="cursor-dot-outline"></div>
+<div class="cursor-dot"></div>
+
+<script>
+    var cursor = {
+        delay: 8,
+        _x: 0,
+        _y: 0,
+        endX: (window.innerWidth / 2),
+        endY: (window.innerHeight / 2),
+        cursorVisible: true,
+        cursorEnlarged: false,
+        $dot: document.querySelector('.cursor-dot'),
+        $outline: document.querySelector('.cursor-dot-outline'),
+        
+        init: function() {
+            // Set up element sizes
+            this.dotSize = this.$dot.offsetWidth;
+            this.outlineSize = this.$outline.offsetWidth;
+            
+            this.setupEventListeners();
+            this.animateDotOutline();
+        },
+        
+        setupEventListeners: function() {
+            var self = this;
+            
+            // Anchor hovering
+            document.querySelectorAll('a').forEach(function(el) {
+                el.addEventListener('mouseover', function() {
+                    self.cursorEnlarged = true;
+                    self.toggleCursorSize();
+                });
+                el.addEventListener('mouseout', function() {
+                    self.cursorEnlarged = false;
+                    self.toggleCursorSize();
+                });
+            });
+            
+            // Click events
+            document.addEventListener('mousedown', function() {
+                self.cursorEnlarged = true;
+                self.toggleCursorSize();
+            });
+            document.addEventListener('mouseup', function() {
+                self.cursorEnlarged = false;
+                self.toggleCursorSize();
+            });
+
+            document.addEventListener('mousemove', function(e) {
+                // Show the cursor
+                self.cursorVisible = true;
+                self.toggleCursorVisibility();
+
+                // Position the dot
+                self.endX = e.clientX; // Use clientX to account for scrolling
+                self.endY = e.clientY; // Use clientY to account for scrolling
+                self.$dot.style.top = self.endY + 'px';
+                self.$dot.style.left = self.endX + 'px';
+            });
+            
+            // Hide/show cursor
+            document.addEventListener('mouseenter', function() {
+                self.cursorVisible = true;
+                self.toggleCursorVisibility();
+                self.$dot.style.opacity = 1;
+                self.$outline.style.opacity = 1;
+            });
+            
+            document.addEventListener('mouseleave', function() {
+                self.cursorVisible = true;
+                self.toggleCursorVisibility();
+                self.$dot.style.opacity = 0;
+                self.$outline.style.opacity = 0;
+            });
+        },
+        
+        animateDotOutline: function() {
+            var self = this;
+            
+            self._x += (self.endX - self._x) / self.delay;
+            self._y += (self.endY - self._y) / self.delay;
+            self.$outline.style.top = self._y + 'px';
+            self.$outline.style.left = self._x + 'px';
+            
+            requestAnimationFrame(this.animateDotOutline.bind(self));
+        },
+        
+        toggleCursorSize: function() {
+            var self = this;
+            
+            if (self.cursorEnlarged) {
+                self.$dot.style.transform = 'translate(-50%, -50%) scale(0.75)';
+                self.$outline.style.transform = 'translate(-50%, -50%) scale(1.5)';
+            } else {
+                self.$dot.style.transform = 'translate(-50%, -50%) scale(1)';
+                self.$outline.style.transform = 'translate(-50%, -50%) scale(1)';
+            }
+        },
+        
+        toggleCursorVisibility: function() {
+            var self = this;
+            
+            if (self.cursorVisible) {
+                self.$dot.style.opacity = 1;
+                self.$outline.style.opacity = 1;
+            } else {
+                self.$dot.style.opacity = 0;
+                self.$outline.style.opacity = 0;
+            }
+        }
+    }
+
+    cursor.init();
+</script>
+
+
 </body>
 
 
